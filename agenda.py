@@ -13,7 +13,7 @@ def encontraPosicao(nick, array):
             
 
 # Lista Vazia para Armazenar nome e número
-lista_tel = [["Ana", "000000"], ["Beto", "1111111"], ["Carlos", "222222"], ["Carlos", "3333333"]]
+lista_tel = []
 
 while (True):
     system("cls")
