@@ -11,3 +11,7 @@ print("AGENDA TELEFÔNICA")
 nome =   input("Digite o nome do contato:   ")
 numero = input("Digite o número do contato: ")
 lista_tel.append([nome, numero])
+
+for i in lista_tel:
+    print("Nome: ", i[0], "    Telefone: ", i[1])
+
