@@ -1,7 +1,7 @@
 from os import system
 import re
 
-system("clear")
+system("cls")
 
 # Lista Vazia para Armazenar nome e número
 lista_tel = [["Ana", "000000"], ["Beto", "1111111"], ["Carlos", "222222"], ["Carlos", "3333333"]]
@@ -18,16 +18,23 @@ for i in lista_tel:
 
 print("--- Editando lista ---")
 
-query_results = [] # Vou armazenar todas as posições dos nomes na lista_tel que foram informados no nome, pois podem haver valores iguais
 
+# Anota as posições de todos os matches de nome na lista_tel em query_results
+query_results = [] 
 nome = input("Informe o nome do contato a ser editado: ")
 j = 0
 for i in lista_tel:
     if nome in i[0]:
         query_results.append(j)
     j = j + 1
+
+
+# Se não encontrar nenhum match len(query_results) = 0
 if len(query_results) == 0:
     print("Não foi encontrado nenhum contato com este nome.")
+
+
+# Caso contrário, eu encontrei pelo menos um contato
 else:
     # print(query_results)
     print("Foram encontrados resultados para a sua pesquisa. Digite o código do contato para renomear")
@@ -48,6 +55,29 @@ else:
     else:
         print("Comando inválido!")
 
+query_results_temp = [] 
+nome = input("Informe o nome do contato a ser excluído: ")
+j = 0
+for i in lista_tel:
+    if nome in i[0]:
+        query_results_temp.append(j)
+    j = j + 1
+
+if len(query_results_temp) == 0:
+    print("Não foi encontrado nenhum contato com este nome.")
+
+
+# Caso contrário, eu encontrei pelo menos um contato
+else:
+    # print(query_results)
+    print("Foram encontrados resultados para a sua pesquisa. Digite o código do contato para renomear")
+    k = 0
+    for i in query_results_temp:
+        print("CÓD.:", k, "Nome: ", lista_tel[i][0], "    Telefone: ", lista_tel[i][1])
+        k =  k + 1
+    codigo = int(input("Digite qual deles você deseja excluir: "))
+
+    lista_tel.pop(query_results_temp[codigo])
 
 print("Nova lista: ")
 for i in lista_tel:
